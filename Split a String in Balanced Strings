@@ -1,0 +1,22 @@
+   #Split a String in Balanced Strings and return the maximum number of balanced strings
+   
+   
+   def balancedStringSplit(self, s: str) -> int:
+        
+        scale = 0
+        max_balance = 0
+        
+        for c in s:
+
+            if(c == 'R'):
+                scale += 1
+            else:
+                scale -= 1
+                
+            if(scale == 0):
+                max_balance += 1
+        
+        return max_balance
+        
+  Time Complexity is O(n)
+        
