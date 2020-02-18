@@ -1,0 +1,23 @@
+#Count Negative Numbers in a Sorted Matrix
+
+•	Start from top right corner. 
+•	If the number is positive, it means the numbers before it are also positive. 
+•	So move to next row. 
+•	If the number is negative, this means that the numbers below it are also negative. Move to previous column. 
+
+---
+##PYTHON CODE
+
+        m = len(grid) #rows
+        n = len(grid[0]) #cols
+        row = 0 
+        col = n-1
+        count = 0 
+        while (row<m and col>=0):
+            if (grid[row][col]<0):
+                count+= (m - row)
+                col-=1
+            else:
+                row+=1
+        return count
+> The time complexity of the solution is O(m+n)
