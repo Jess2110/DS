@@ -1,0 +1,23 @@
+'''
+Given a string S and a character C, return an array of integers representing the shortest distance from the character C in the string.
+'''
+class Solution(object):
+    def shortestToChar(self, S, C):
+        """
+        :type S: str
+        :type C: str
+        :rtype: List[int]
+        """
+        indices = []
+        ans = []
+        for i in range(0,len(S)):
+            if(S[i]==C):
+                indices.append(i)
+        for i in range(0,len(S)):
+            min_element = 10**5
+            for j in indices:
+                if(abs(j-i)<min_element):
+                    min_element = abs(j-i)
+            ans.append(min_element)
+                
+        return ans
