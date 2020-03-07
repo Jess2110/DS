@@ -1,0 +1,31 @@
+'''
+Given a m * n matrix mat of ones (representing soldiers) and zeros (representing civilians), 
+return the indexes of the k weakest rows in the matrix ordered from the weakest to the strongest.
+
+A row i is weaker than row j,
+if the number of soldiers in row i is less than the number of soldiers in row j,
+or they have the same number of soldiers but i is less than j. Soldiers are always stand in the frontier of a row, that is, always ones may appear first and then zeros.
+'''
+class Solution(object):
+    def kWeakestRows(self, mat, k):
+        """
+        :type mat: List[List[int]]
+        :type k: int
+        :rtype: List[int]
+        """
+        res = []
+        for i in range(0,len(mat)):
+            for j in range(0,len(mat[0])):
+                if(mat[i][j]==0):
+                    res.append([j,i])
+                    break
+                elif(j == (len(mat[0])-1)):
+                   res.append([j+1,i])
+        print(res)
+        res.sort()
+        result = [ i[1] for i in res]
+        print(result)
+        if len(result)==0 and k>0:
+            result = [0]*k
+        return result[0:k]
+            
