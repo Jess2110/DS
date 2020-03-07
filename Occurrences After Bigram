@@ -1,0 +1,25 @@
+'''
+Given words first and second, consider occurrences in some text of the form "first second third", 
+where second comes immediately after first, and third comes immediately after second.
+For each such occurrence, add "third" to the answer, and return the answer.
+'''
+class Solution(object):
+    def findOcurrences(self, text, first, second):
+        """
+        :type text: str
+        :type first: str
+        :type second: str
+        :rtype: List[str]
+        """
+        
+        '''
+        Trace this
+        '''
+        #enumerate returns a list of tupes with first value in tuple as counter.
+        res = []
+        text = text.split()
+        for i, word in enumerate(text):
+            if i<len(text)-2 and word == first and text[i+1]==second:
+                res.append(text[i+2])    
+        return res
+ 
