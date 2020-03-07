@@ -1,0 +1,18 @@
+'''
+Given a binary tree, each node has value 0 or 1.  
+Each root-to-leaf path represents a binary number starting with the most significant bit. 
+For example, if the path is 0 -> 1 -> 1 -> 0 -> 1, then this could represent 01101 in binary, which is 13.
+
+For all leaves in the tree, consider the numbers represented by the path from the root to that leaf
+
+Return the sum of these numbers.
+'''
+
+
+class Solution(object):
+    def sumRootToLeaf(self, root, number=0):
+        if root is None: return 0
+        number <<= 1 # Shift current number right
+        number |= root.val # Set the rightmost bit of number by using OR
+        if root.left is None and root.right is None: return number # Leaf
+        return self.sumRootToLeaf(root.left, number) + self.sumRootToLeaf(root.right, number)
