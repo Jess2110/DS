@@ -1,0 +1,14 @@
+class Solution(object):
+    def sortByBits(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: List[int]
+        """
+        hashmap = []
+        arr.sort()
+        for i in arr:
+            hashmap.append([bin(i).count('1'), i])
+        hashmap.sort()
+        res = [num[1] for num in hashmap]
+        return res
+            
