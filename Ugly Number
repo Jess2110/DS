@@ -1,0 +1,14 @@
+class Solution(object):
+    def isUgly(self, num):
+        """
+        :type num: int
+        :rtype: bool
+        """
+        prime_fact = [2,3,5]
+        for p in prime_fact:
+            while num%p ==0:
+                num = num//p
+        if num==1:
+            return True
+        return False
+        
