@@ -1,0 +1,18 @@
+class Solution(object):
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        i = 0
+        hashmap = {}
+        for j in nums:
+            if j in hashmap:
+                if(abs((i-hashmap[j])<=k)):
+                    return True
+                hashmap[j] = i
+            else:
+                hashmap[j]= i
+            i+=1
+        return False
