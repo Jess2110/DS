@@ -1,0 +1,20 @@
+"""
+Count the number of segments in a string, where a segment is defined to be a contiguous sequence of non-space characters.
+
+Please note that the string does not contain any non-printable characters.
+"""
+class Solution(object):
+    def countSegments(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if len(s)=="":
+            return 0
+        words= list(s.split(" "))
+        count = len(words)
+        for i in words:
+            if i =="":
+                count-=1
+        return count
+                
