@@ -1,0 +1,17 @@
+Given an input string, reverse the string word by word.
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        S= s.split(" ")
+        rev = []
+        for i in S:
+            if i == "":
+                continue
+            else:
+                rev.append(i)
+        rev = rev[::-1]
+        return " ".join(rev)
+        
