@@ -5,9 +5,9 @@ class Solution(object):
         :type s: str
         :rtype: str
         """
-        S= s.split(" ")
+        s= s.split(" ")
         rev = []
-        for i in S:
+        for i in s:
             if i == "":
                 continue
             else:
