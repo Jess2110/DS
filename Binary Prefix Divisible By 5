@@ -1,0 +1,12 @@
+class Solution(object):
+    def prefixesDivBy5(self, A):
+        """
+        :type A: List[int]
+        :rtype: List[bool]
+        """
+        checks = []
+        prefix = '0b'
+        for i in A:
+            prefix = prefix + str(i)
+            checks.append(int(prefix, 2) % 5 == 0)
+        return checks
