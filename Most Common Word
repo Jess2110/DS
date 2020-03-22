@@ -1,0 +1,24 @@
+class Solution(object):
+    def mostCommonWord(self, paragraph, banned):
+        """
+        :type paragraph: str
+        :type banned: List[str]
+        :rtype: str
+        """
+        import re
+        paragraph = paragraph.lower()
+        paragraph = re.sub('[^a-zA-Z]', ' ', paragraph)
+        paragraph = paragraph.split()
+        print(paragraph)
+        hashmap= {}
+        for i in paragraph:
+            if i in hashmap:
+                hashmap[i]+=1
+            else:
+                if i in banned:
+                    continue
+                else:
+                    hashmap[i]=1
+        print(hashmap)
+        return max(hashmap, key=hashmap.get)
+            
