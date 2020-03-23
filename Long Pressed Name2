@@ -1,0 +1,14 @@
+class Solution(object):
+    def isLongPressedName(self, name, typed):
+        """
+        :type name: str
+        :type typed: str
+        :rtype: bool
+        """
+        i = 0 
+        for char in name:
+            new = typed[i:].find(char)
+            if new==-1:
+                return False
+            i = i+1+new
+        return True
