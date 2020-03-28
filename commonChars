@@ -1,0 +1,12 @@
+class Solution(object):
+    def commonChars(self, A):
+        """
+        :type A: List[str]
+        :rtype: List[str]
+        """
+        a = []
+        for i in set(A[0]):
+            a.extend([i]*min(j.count(i) for j in A))
+        return a    
+                
+            
