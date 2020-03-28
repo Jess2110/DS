@@ -1,0 +1,15 @@
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ra nsomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        #This is like the SUbstring problem only 
+        for char in ransomNote:
+            new = magazine.find(char)
+            if new ==-1:
+                return False
+            letter = magazine[new]
+            magazine = magazine[:new]+magazine[new+1:]
+        return True
