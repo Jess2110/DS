@@ -1,0 +1,31 @@
+
+Given a m * n matrix of distinct numbers, return all lucky numbers in the matrix in any order.
+
+A lucky number is an element of the matrix such that it is the minimum element in its row and maximum in its column.
+
+class Solution(object):
+    def checkMaxInCol( self, num, rows, index, matrix):
+        for i in range(rows):
+            if (num< matrix[i][index]):
+                print(num,matrix[i][index] )
+                return False
+        return True
+        
+    
+    def luckyNumbers (self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        res = []
+        rows = len(matrix)
+        cols = len(matrix[0])
+        for i in range(rows):
+            min_in_row= min(matrix[i])
+            index_of_min = matrix[i].index(min_in_row)
+            result = self.checkMaxInCol(min_in_row,rows,index_of_min,matrix)
+            #print(min_in_row)
+            print(result)
+            if result:
+                res.append(min_in_row)
+        return res
