@@ -1,0 +1,14 @@
+  def bitwiseComplement(self, N):
+      """
+      :type N: int
+      :rtype: int
+      """
+      new= ''
+      bin_n = str(bin(N)[2:])
+      for i in bin_n:
+          if i=='0':
+              new+='1'
+          else:
+              new+='0'
+      print(new)
+      return int(new,2)
