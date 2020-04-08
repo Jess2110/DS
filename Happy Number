@@ -1,0 +1,22 @@
+class Solution(object):
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        cycle = []
+        cycle.append(n)
+        n = str(n)
+        if n=='1':
+            return True
+        while (int(n)!=1):
+            num = 0
+            for i in n:
+                num+=int(i)*int(i)
+            if(num==1):
+                return True
+            if num in cycle:
+                return False
+            cycle.append(num)
+            n = str(num)
+        return False
