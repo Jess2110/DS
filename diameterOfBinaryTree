@@ -1,0 +1,25 @@
+#         self.right = None
+
+class Solution(object):
+    def height(self, root):
+        if root is None:
+            return 0
+        else:
+            lheight= self.height(root.left)+1
+            rheight = self.height(root.right)+1
+        return max(lheight,rheight)
+        
+    def diameterOfBinaryTree(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if root is None:
+            return 0
+        else:
+            lheight= self.height(root.left)
+            rheight = self.height(root.right)
+            ldiameter = self.diameterOfBinaryTree(root.left)
+            rdiamter = self.diameterOfBinaryTree(root.right)
+            fd = max(lheight+rheight, max(ldiameter,rdiamter))
+        return fd
